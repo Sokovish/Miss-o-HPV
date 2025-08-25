@@ -18,24 +18,60 @@ body {
     border-radius: 25px;
     height: 750px;
     max-width: 1200px;
+    min-width: 1200px;
     padding: 40px;
+}
+
+#inicio {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
-
+#pre_jogo {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 20px;
+}
 #title {
     color: #e72942;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: bold;
 }
-#introduction {
+.paragrafo {
     color: #ffffff;
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.5rem;
     width: 80%;
-    margin: auto auto;
+    margin: auto;
+}
+
+#lembrete{
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+}
+.titulo_instrucao {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e72942;
+}
+.bold {
+    font-weight: bold;
+}
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
+    border-color: #e72942;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(231, 41, 66, 0.8);
+    border-color: #ff5068;
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
+    border-color: #e72942;
+  }
 }
 
 #input_container {
@@ -52,37 +88,49 @@ body {
     border: solid 2px #e72942;
     background-color: rgba(231, 41, 66, 0.07);
     color: #ffffff;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-align: center;
-    
+    transition: all 0.3s ease-in-out;
+    animation: pulseGlow 4s infinite ease-in-out;
 }
+
 #playerName::placeholder {
     color: #ffffff;
     opacity: 0.7;
     font-weight: 900;
 }
+
+#playerName:focus {
+    outline: none;
+    animation: none;
+    box-shadow: 0 0 25px rgba(231, 41, 66, 0.9);
+    transform: scale(1.02);
+    border-color: #ff5068;
+}
+
 .button_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.start_button {
+.button {
     background-color: #e72942;
     color: #ffffff;
     border: none;
     border-radius: 10px;
     padding: 20px 100px;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
     transition: 0.2s ease;
 }
 
-.start_button:hover {
+.button:hover {
     transform: scale(1.05);
 }
 
-.start_button:active {
+.button:active {
     transform: scale(0.95);
     box-shadow: none;
     transition: 0.1s ease;

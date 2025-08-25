@@ -7,14 +7,14 @@
     <title>Missão HPV: O Escudo Protetor</title>
 </head>
 <body>
-    <div class="container">
+    <!-- <div class="container" id="inicio">
         <div id="title">
             <h1>Missão HPV <br>O Escudo Protetor</h1>
         </div>
 
-        <div id="introduction">
+        <div class="paragrafo" id="introduction" >
             <p>E aí, futuro(a) guardião(ã) da saúde!
-            <br>Que bom ter você por aqui! Prepare-se para uma aventura onde vamos mostrar que cuidar da saúde e aprender pode ser superdivertido. <br>Para começar, diga pra gente como devemos te chamar. Bom jogo!</p>
+            <br><br>Que bom ter você por aqui! Prepare-se para uma aventura onde vamos mostrar que cuidar da saúde e aprender pode ser superdivertido. <br><br>Para começar, diga pra gente como devemos te chamar. Bom jogo!</p>
         </div>
 
         <div id="input_container">
@@ -22,7 +22,32 @@
         </div>
 
         <div class="button_container">
-            <button class="start_button" onclick="startGame()">Começar</button>
+            <button class="button" onclick="SalvarAvançar()">Avançar</button>
+        </div>
+    </div> -->
+
+    <div class="container" id="pre_jogo">
+        <div class="paragrafo">
+            <p>
+                <span class="titulo_instrucao">Sua Missão Começa Agora!</span>
+
+                <br><br> Olá, <span id="nomeDoJogadorDisplay"></span>!
+
+                <br><br> Seu objetivo é passar por 5 fases e acumular o máximo de pontos que conseguir. Cada fase testará seu conhecimento e agilidade de uma forma diferente. <br><br>
+
+                ✅ <span class="bold">Acerte as respostas</span> Acerte as respostas para somar pontos. <br>
+                ❌ <span class="bold">Erros podem custar pontos</span> Erros podem custar pontos, então jogue com atenção!
+
+               <br><br> O cronômetro vai registrar seu tempo total. Se houver empate na pontuação, o jogador mais rápido vence.
+            </p>
+        </div>
+
+        <div class="button_container">
+            <button class="button" onclick="startGame()">Começar</button>
+        </div>
+        
+        <div id="lembrete" class="paragrafo">
+            <p>Lembre-se: o verdadeiro prêmio é o conhecimento. Prepare-se para se tornar um campeão da saúde!</p>
         </div>
     </div>
 </body>
