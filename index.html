@@ -7,7 +7,7 @@
     <title>Missão HPV: O Escudo Protetor</title>
 </head>
 <body>
-    <!-- <div class="container" id="inicio">
+    <div class="container js-tela" id="inicio">
         <div id="title">
             <h1>Missão HPV <br>O Escudo Protetor</h1>
         </div>
@@ -29,17 +29,17 @@
         </div>
 
         <div class="button_container">
-            <button class="button" onclick="SalvarAvançar()">Avançar</button>
+            <button class="button" id="btn-iniciar">Avançar</button>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="container" id="pre_jogo">
+    <div class="container js-tela" id="pre_jogo">
         <div class="paragrafo">
             <div class="titulo">
                 <h2 class="titulo">Sua Missão Começa Agora!</h2>
             </div>
                 <p>
-                    Olá, <span id="nomeDoJogadorDisplay"></span>!
+                    Olá, <span id="nomeJogadorDisplay"></span>!
                 </p>    
                 <p> Seu objetivo é passar por 5 fases e acumular o máximo de pontos que conseguir. Cada fase testará seu conhecimento e agilidade de uma forma diferente. </p>
                 <p>
@@ -52,14 +52,14 @@
             
         </div>
         <div class="button_container">
-            <button class="button" onclick="irParaJogo()">Começar</button>
+            <button class="button" id="btn-comecar">Começar</button>
         </div>
         <div id="lembrete" class="paragrafo">
             <p>Lembre-se: o verdadeiro prêmio é o conhecimento. Prepare-se para se tornar um campeão da saúde!</p>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="container" id="pre_invasao_viral">
+    <div class="container js-tela" id="pre_invasao_viral">
         <div class="titulo">
             <h2 class="titulo">Invasão Viral</h2>
         </div>
@@ -77,16 +77,34 @@
             </p>
         </div>
         <div class="button_container">
-            <button class="button" onclick="startGame()">Começar</button>
+            <button class="button" id="btn-jogar">Jogar</button>
         </div>
-    </div> -->
-    <div class="hud">
-
     </div>
-        <div class="container" id="invasao_viral">
+    <div class="hud js-tela">
+        <div id="score">Pontuação: 0</div>
+        <div id="titulo">Invasão Viral</div>
+        <div id="timer">Tempo: 0s</div> 
+    </div>
+        <div class="container js-tela" id="invasao_viral">
 
         </div>
 
-    <script src="js/script.js"></script>
+        <div class="container js-tela" id="">
+
+        </div>
+
+        <div class="container js-tela" id="">
+
+        </div>
+
+        <div class="container js-tela" id="">
+
+        </div>
+
+        <div class="container js-tela" id="">
+
+        </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
