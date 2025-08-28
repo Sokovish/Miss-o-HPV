@@ -16,6 +16,7 @@ let nomeJogador = '';
 let cronometroInterval;
 let tempoInicio = 0;
 
+
 function mostrarTela(telaMostrar) {
     document.querySelectorAll('.js-tela').forEach(tela => {
         tela.style.display = 'none';
@@ -53,7 +54,7 @@ function atualizarDisplay (){
 function formatarTempo(milissegundos) {
     const minutos = String(Math.floor(milissegundos / 60000)).padStart(2, '0');
     const segundos = String(Math.floor(milissegundos % 60000 / 1000)).padStart(2, '0');
-    const ms = String(milissegundos % 1000).padStart(3, '0');
+    const ms = String(Math.floor(milissegundos % 1000 / 10)).padStart(2, '0');
     
     return `${minutos}:${segundos}:${ms}`;
 }
@@ -61,7 +62,7 @@ function formatarTempo(milissegundos) {
 function pararCronometro() {
     clearInterval(cronometroInterval);
     cronometroInterval = null;
-    cronometroDisplay.textContent = '00:00:000';
+    cronometroDisplay.textContent = '00:00:00';
 }
 
 btnComecar.addEventListener('click', ()=> mostrarTela(InvViral));
