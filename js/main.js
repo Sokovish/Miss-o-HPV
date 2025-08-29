@@ -15,14 +15,13 @@ let nomeJogador = '';
 
 let cronometroInterval;
 let tempoInicio = 0;
+let tempoPausado = 0;
 
 function mostrarTela(telaMostrar) {
     document.querySelectorAll('.js-tela').forEach(tela => {
         tela.style.display = 'none';
     });
-
     telaMostrar.style.display = 'grid';
-
 }
 
 const SalvarAvançar = () => { 
@@ -43,6 +42,12 @@ function iniciarCronometro() {
     cronometroInterval = setInterval(atualizarDisplay, 50);
 }
 
+function pausarTempo() {
+    clearInterval(cronometroInterval);
+    cronometroInterval = null;
+    tempoPausado = Date.now() - tempoInicio;
+}
+
 function atualizarDisplay (){
     tempoDecorrido = Date.now() - tempoInicio;
 
@@ -61,8 +66,11 @@ function formatarTempo(milissegundos) {
 function pararCronometro() {
     clearInterval(cronometroInterval);
     cronometroInterval = null;
+    tempoInicio = 0;
+    tempoPausado = 0;
     cronometroDisplay.textContent = '00:00:000';
 }
+
 
 btnComecar.addEventListener('click', ()=> mostrarTela(InvViral));
 
