@@ -58,7 +58,7 @@ function atualizarDisplay (){
 function formatarTempo(milissegundos) {
     const minutos = String(Math.floor(milissegundos / 60000)).padStart(2, '0');
     const segundos = String(Math.floor(milissegundos % 60000 / 1000)).padStart(2, '0');
-    const ms = String(milissegundos % 1000).padStart(3, '0');
+    const ms = String(Math.floor(milissegundos % 1000 / 10)).padStart(2, '0');
     
     return `${minutos}:${segundos}:${ms}`;
 }
@@ -66,8 +66,6 @@ function formatarTempo(milissegundos) {
 function pararCronometro() {
     clearInterval(cronometroInterval);
     cronometroInterval = null;
-    tempoInicio = 0;
-    tempoPausado = 0;
     cronometroDisplay.textContent = '00:00:000';
 }
 

@@ -1,17 +1,28 @@
+/* ==========================================================================
+   1. Estilos Globais e Reset
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #1a1a2e;
+}
+
+main {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
 
+
+/* ==========================================================================
+   2. Layout Principal (Containers e Telas)
+   ========================================================================== */
 .container {
     background-color: #282845;
     border: 2px solid #e72942;
@@ -21,27 +32,49 @@ body {
     padding: 40px;
 }
 
+/* Layouts de Grid específicos para cada tela */
 #inicio {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
+
 #pre_jogo {
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
     gap: 20px;
 }
+
 #pre_invasao_viral {
     display: grid;
     grid-template-rows: 0.5fr 1fr 1fr;
     gap: 20px;
 }
+
+
+/* ==========================================================================
+   3. Estilos de Componentes
+   ========================================================================== */
+
+/* --- Componentes de Texto e Tipografia --- */
 #title {
     color: #e72942;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+.titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e72942;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 .paragrafo {
     color: #ffffff;
     text-align: center;
@@ -49,44 +82,28 @@ body {
     width: 80%;
     margin: auto;
 }
-h2 {
-    text-align: center;
-    margin-bottom: 50px;
+
+p {
+    margin-top: 1.5rem;
 }
 
-#lembrete{
+span {
+    font-weight: bold;
+}
+
+#lembrete {
     font-size: 1.2rem;
     font-weight: bold;
     width: 100%;
 }
-.titulo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #e72942;
-}
 
-span{
+.pontosCronometro {
+    color: #ffffff;
     font-weight: bold;
 }
-p{
-    margin-top: 1.5rem
-}
 
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
-    border-color: #e72942;
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(231, 41, 66, 0.8);
-    border-color: #ff5068;
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
-    border-color: #e72942;
-  }
-}
 
+/* --- Componentes de Formulário (Input) --- */
 #input_container {
     display: flex;
     align-items: center;
@@ -121,11 +138,14 @@ p{
     border-color: #ff5068;
 }
 
+
+/* --- Componentes de Botão --- */
 .button_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .button {
     background-color: #e72942;
     color: #ffffff;
@@ -149,6 +169,19 @@ p{
     transition: 0.1s ease;
 }
 
+
+/* --- Componentes Específicos do Jogo --- */
+.hud {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #5f6166;
+    height: 70px;
+    font-size: 30px;
+    position: fixed;
+}
+
 .celula-viral {
     background-color: #1a1a2e;
     border-radius: 50%;
@@ -159,5 +192,24 @@ p{
     font-size: 3rem;
     transition: transform 0.2s;
     border: 3px solid #10101f;
-    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);/
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================================================
+   4. Animações (@keyframes)
+   ========================================================================== */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
+    border-color: #e72942;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(231, 41, 66, 0.8);
+    border-color: #ff5068;
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(231, 41, 66, 0.4);
+    border-color: #e72942;
+  }
 }
