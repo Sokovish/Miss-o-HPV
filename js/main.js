@@ -37,6 +37,10 @@ const SalvarAvançar = () => {
     mostrarTela(preJogo);
 }
 
+function trocaTelas() {
+
+}
+
 function iniciarCronometro() {
     if (cronometroInterval) return;
     tempoInicio = Date.now();
@@ -66,5 +70,6 @@ function pararCronometro() {
 }
 
 btnComecar.addEventListener('click', ()=> mostrarTela(InvViral));
+btnIniciar.addEventListener('click', () => SalvarAvançar(InvViral));
 
 mostrarTela(telaInicio);
