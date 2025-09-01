@@ -29,6 +29,7 @@ main {
     border-radius: 25px;
     height: 750px;
     max-width: 1200px;
+    min-width: 1200px;
     padding: 40px;
 }
 
@@ -51,6 +52,11 @@ main {
     gap: 20px;
 }
 
+#vf {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
 
 /* ==========================================================================
    3. Estilos de Componentes
@@ -69,6 +75,7 @@ main {
     font-weight: bold;
     color: #e72942;
 }
+
 
 h2 {
     text-align: center;
@@ -169,6 +176,45 @@ span {
     transition: 0.1s ease;
 }
 
+.botoes {
+    display: flex;
+    width: 100%;
+    gap: 200px;
+    align-items: center;
+    justify-content: center;
+}
+.button_vf{
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 30px 150px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
+    transition: 0.2s ease;
+}
+.button_vf:hover {
+    transform: scale(1.05);
+}
+
+.button_vf:active {
+    transform: scale(0.95);
+    box-shadow: none;
+    transition: 0.1s ease;
+}
+.cor_green {
+    background-color: #1dd61d;
+}
+
+.cor_red{
+    background-color: #d82b2b;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+}
 
 /* --- Componentes Específicos do Jogo --- */
 .hud {

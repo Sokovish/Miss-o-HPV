@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=pt-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +10,15 @@
 <body>
 
     <div class="hud js-tela" id="hud">
-        <div class="pontosCronometro" id="score">Pontuação: 0</div>
-        <div class="titulo" id="titulo_jogo">Invasão Viral</div>
+        <div class="pontosCronometro" id="placar">Pontuação: 0</div>
+        <div class="titulo" id="titulo_jogo">TESTE</div>
         <div class="pontosCronometro"  class="hud-item">
             Tempo: <span id="cronometro_display">00:00:00</span>
         </div> 
     </div>
     <main>
         
-        <div class="container js-tela" id="inicio">
+       <!--  <div class="container js-tela" id="inicio">
             <div id="title">
                 <h1>Missão HPV <br>O Escudo Protetor</h1>
             </div>
@@ -66,28 +66,44 @@
         </div>
     </div>
 
-    <div class="container js-tela" id="pre_invasao_viral">
+    <div class="container js-tela" id="pre_caca_mitos">
         <div class="titulo">
-            <h2 class="titulo">Invasão Viral</h2>
+            <h2 class="titulo">Caça Mitos</h2>
         </div>
         <div  id="invasao_viral_container" class="paragrafo">
             <p>
-                Sua primeira missão é proteger as células de um ataque do HPV!
+                Sua tarefa é separar a verdade da mentira em alta velocidade.
+                Uma afirmação sobre o HPV aparecerá na tela.
+                
             </p>
             <p>
-                Clique nos vírus (🦠) que aparecerem na tela para eliminá-los.
-                Cuidado! Não clique nos escudos de defesa (🛡️) ou você será penalizado. 
+                Decida rapidamente se é FATO ou MITO e clique no botão correspondente.
             </p>
             <p>
-                Seja rápido(a) e preciso(a)! A proteção começa agora.
+                As fake news são ágeis, mas a verdade é mais forte. Confie no seu conhecimento! 
             </p>
-        </div>
-        <div class="button_container">
+
+
+        </div> -->
+        <!-- <div class="button_container">
             <button class="button" id="btn-jogar">Jogar</button>
-        </div>
-    </div>
+        </div> -->
 
-        <div class="container js-tela" id="invasao_viral">
+        <div class="container js-tela" id="vf">
+            <div class="paragrafo" id="area_pergunta">
+                <p class="afirmacao_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+            <div class="botoes">
+                <button id="button_true" class="button_vf cor_green"><img src="./img/simbolo-correto.png" alt="simbolo-correto"></button>
+                <button id="button_false" class="button_vf cor_red"><img src="./img/cancelar.png" alt="simbolo-incorreto"></button>
+            </div>
+        </div>
+
+        <!-- <div class="container js-tela" id="">
+
+        </div>
+
+        <div class="container js-tela" id="">
 
         </div>
 
@@ -97,17 +113,10 @@
 
         <div class="container js-tela" id="">
 
-        </div>
-
-        <div class="container js-tela" id="">
-
-        </div>
-
-        <div class="container js-tela" id="">
-
-        </div>
+        </div> -->
     </main>
 
     <script src="js/main.js"></script>
+    <script src="js/caca_mitos.js"></script>
 </body>
 </html>
