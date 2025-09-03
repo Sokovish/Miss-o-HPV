@@ -36,8 +36,8 @@ main {
 /* Layouts de Grid específicos para cada tela */
 #inicio {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-rows: 1fr 1fr 1fr 0.1fr 1fr;
+    gap: 15px;
 }
 
 #pre_jogo {
@@ -55,6 +55,16 @@ main {
 #vf {
     display: grid;
     grid-template-rows: 1fr 1fr;
+}
+
+#pre_quiz {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+#quiz {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
 }
 
 .js-tela {
@@ -115,7 +125,7 @@ span {
 
 
 /* --- Componentes de Formulário (Input) --- */
-#input_container {
+.input {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,6 +159,20 @@ span {
     border-color: #ff5068;
 }
 
+#serie-select {
+    height: 2rem;
+    width: 12rem;
+    text-align: center;
+    border-radius: 5px;
+    border: solid 2px #e72942;
+    background-color: rgba(231, 41, 66, 0.07);
+    color: #fff;
+    font-weight: bold;
+}
+#serie-select option {
+    background-color: #282845;
+    color: #ffffff;          
+}
 
 /* --- Componentes de Botão --- */
 .button_container {
@@ -215,6 +239,38 @@ span {
     background-color: #d82b2b;
 }
 
+.alternativas {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btnAlternativas {
+    height: 5rem;
+    width: 50rem;
+    border-radius: 10px;
+    border: solid 1.5px #e72942;
+    background-color: #1a1a2e;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+.btnAlternativas:hover {
+    transform: scale(1.05);
+    background-color: rgba(231, 41, 66, 0.1);
+    border-color: #ff5068;
+}
+
+.btnAlternativas:active {
+    transform: scale(0.98);
+    transition: 0.2s ease;
+}
+
+
 img {
     height: 50px;
     width: 50px;
@@ -231,20 +287,6 @@ img {
     font-size: 30px;
     position: fixed;
 }
-
-.celula-viral {
-    background-color: #1a1a2e;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    transition: transform 0.2s;
-    border: 3px solid #10101f;
-    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);
-}
-
 
 /* ==========================================================================
    4. Animações (@keyframes)

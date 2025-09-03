@@ -1,7 +1,7 @@
 import {bancoVerdadeiroFalso} from "./dados.js"
 import { avancarFase, atualizarPlacar } from "./main.js";
 
-const areaPergunta = document.getElementById('area_pergunta')
+const areaPergunta = document.getElementById('area_pergunta_mitos')
 const buttonTrue = document.getElementById('button_true')
 const buttonFalse = document.getElementById('button_false')
 
@@ -49,7 +49,7 @@ function checarResposta(respostaJogador) {
     }
 
     perguntaAtual++;
-    setTimeout(mostrarPergunta, 1500);
+    setTimeout(mostrarPergunta, 15);
 }
 
 buttonTrue.addEventListener('click', () => checarResposta(true));

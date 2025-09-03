@@ -1,10 +1,13 @@
 import { iniciarLogicaVF } from './caca_mitos.js';
+import { iniciarLogicaQuiz } from './quiz.js';
 
 
 const telaInicio = document.getElementById('inicio');
 const preJogo = document.getElementById('pre_jogo');
+const tituloJogoHud = document.getElementById('titulo_jogo')
 
 const inputNome = document.getElementById('playerName');
+const inputSerie = document.getElementById('serie-select');
 const btnIniciar = document.getElementById('btn-iniciar');
 const btnComecar = document.getElementById('btn-comecar');
 
@@ -13,6 +16,7 @@ const placar = document.getElementById('placar');
 const nomeJogadorDisplay = document.getElementById('nomeJogadorDisplay');
 
 let nomeJogador = '';
+let serieJogador = '';
 let pontuacao = 0;
 let cronometroInterval;
 let tempoInicio = 0;
@@ -27,10 +31,10 @@ const playlistFase = [
         iniciarLogica: iniciarLogicaVF,
     },
     {
-        // nome: 'Quiz',
-        // idPreTela: 'pre_quiz',
-        // idJogo: 'caca_mitos',
-        // iniciarLogica: iniciarLogicaQuiz,
+        nome: 'Quiz',
+        idPreTela: 'pre_quiz',
+        idJogo: 'quiz',
+        iniciarLogica: iniciarLogicaQuiz,
     },
 ];
 
@@ -43,6 +47,7 @@ function mostrarTela(telaMostrar) {
 }
 function mostrarHud() { hud.style.display = 'flex'; }
 function esconderHud() { hud.style.display = 'none'; }
+
 
 // --- FUNÇÕES DO CRONÔMETRO (Já estavam boas!) ---
 function iniciarCronometro() {
@@ -71,8 +76,13 @@ function formatarTempo(milissegundos) {
 // --- FUNÇÕES DE FLUXO ---
 function SalvarAvançar() { 
     nomeJogador = inputNome.value;
+    serieJogador = inputSerie.value;
     if (nomeJogador.trim() === '') {
         alert('Por favor, insira seu nome');
+        return;
+    }
+    if(serieJogador.trim() === '') {
+        alert('Por favor, selecione sua serie');
         return;
     }
     nomeJogadorDisplay.textContent = nomeJogador;
@@ -80,8 +90,8 @@ function SalvarAvançar() {
 }
 
 function irParaJogo() {
-    faseAtual = -1; // Reseta o contador
-    avancarFase();  // Inicia o ciclo de fases
+    faseAtual = -1;
+    avancarFase();
 }
 
 export function avancarFase() {
@@ -126,7 +136,7 @@ export function atualizarPlacar(valor) {
 }
 
 // --- CONECTANDO OS BOTÕES INICIAIS ---
-btnComecar.addEventListener('click', avancarFase);
+btnComecar.addEventListener('click', () => irParaJogo());
 btnIniciar.addEventListener('click', () => SalvarAvançar());
 
 

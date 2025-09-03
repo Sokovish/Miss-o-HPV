@@ -9,7 +9,7 @@
 
 <body>
 
-    <div class="hud js-tela" id="hud">
+    <div class="hud" id="hud">
         <div class="pontosCronometro" id="placar">Pontuação: 0</div>
         <div class="titulo" id="titulo_jogo">TESTE</div>
         <div class="pontosCronometro"  class="hud-item">
@@ -33,8 +33,16 @@
                     Para começar, diga pra gente como devemos te chamar. Bom jogo!
                 </p>
             </div>
-            <div id="input_container">
-                <input type="text" id="playerName" placeholder="Por favor, digite seu nome" required>
+            <div class="input" id="input_container">
+                <input type="text" id="playerName" placeholder="Por favor, digite seu nome" required autocomplete="off">
+            </div>
+            <div class="input" id="input_select">
+                <select name="serie" id="serie-select" required>
+                    <option value="" disabled selected>Selecione sua serie</option>
+                    <option value="7A">7ºA</option>
+                    <option value="8A">8ºA</option>
+                    <option value="8B">8ºB</option>
+                </select>
             </div>
             <div class="button_container">
                 <button class="button" id="btn-iniciar">Avançar</button>
@@ -70,7 +78,7 @@
         <div class="titulo">
             <h2 class="titulo">Caça Mitos</h2>
         </div>
-        <div id="invasao_viral_container" class="paragrafo">
+        <div id="caca_mitos_container" class="paragrafo">
             <p>
                 Sua tarefa é separar a verdade da mentira em alta velocidade.
                 Uma afirmação sobre o HPV aparecerá na tela.
@@ -88,12 +96,39 @@
     </div>
 
     <div class="container js-tela" id="caca_mitos">
-        <div class="paragrafo" id="area_pergunta">
+        <div class="paragrafo" id="area_pergunta_mitos">
             <p class="afirmacao_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
         <div class="botoes">
             <button id="button_true" class="button_vf cor_green"><img src="./img/simbolo-correto.png" alt="simbolo-correto"></button>
             <button id="button_false" class="button_vf cor_red"><img src="./img/cancelar.png" alt="simbolo-incorreto"></button>
+        </div>
+    </div>
+
+    <div class="container js-tela" id="pre_quiz">
+        <div class="paragrafo">
+            <p>Hora do Quiz! 🧠 </p>
+
+                <p>Chegou a hora de mostrar que você é um expert em prevenção!</p>
+
+                <p>A seguir, você verá uma pergunta com múltiplas alternativas, mas apenas uma está correta. Escolha com sabedoria para acumular o máximo de pontos!</p>
+
+                <p>Vamos lá, o recorde está em jogo!</p>
+        </div>
+        <div class="button_container">
+            <button class="button" id="btn-jogar">Jogar</button>
+        </div>
+    </div>
+
+    <div class="container js-tela" id="quiz">
+        <div class="paragrafo" id="area_pergunta_quiz">
+            <p id="pergunta_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <div class="alternativas">
+            <button class="btnAlternativas">Alternativa 1</button>
+            <button class="btnAlternativas">Alternativa 2</button>
+            <button class="btnAlternativas">Alternativa 3</button>
+            <button class="btnAlternativas">Alternativa 4</button>
         </div>
     </div>
     </main>
