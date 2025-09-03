@@ -46,7 +46,7 @@ main {
     gap: 20px;
 }
 
-#pre_invasao_viral {
+#pre_caca_mitos {
     display: grid;
     grid-template-rows: 0.5fr 1fr 1fr;
     gap: 20px;
@@ -55,6 +55,10 @@ main {
 #vf {
     display: grid;
     grid-template-rows: 1fr 1fr;
+}
+
+.js-tela {
+    display: none;
 }
 
 

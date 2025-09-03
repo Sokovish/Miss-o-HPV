@@ -1,5 +1,5 @@
-import {bancoVerdadeiroFalso} from "./dados"
-import { avancarFase, atualizarDisplay } from "./main";
+import {bancoVerdadeiroFalso} from "./dados.js"
+import { avancarFase, atualizarPlacar } from "./main.js";
 
 const areaPergunta = document.getElementById('area_pergunta')
 const buttonTrue = document.getElementById('button_true')
@@ -8,7 +8,7 @@ const buttonFalse = document.getElementById('button_false')
 let perguntaAtual = 0;
 let perguntasPartida = [];
 
-const totalPerguntas = 5;
+const totalPerguntas = 10;
 
 export function iniciarLogicaVF() {
     console.log("Iniciando fase: Verdadeiro ou Falso");
@@ -24,7 +24,7 @@ export function iniciarLogicaVF() {
 
 function mostrarPergunta(){
     if (perguntaAtual >= totalPerguntas) {
-        avancarFase;
+        avancarFase();
         return;
     }
 
@@ -32,17 +32,26 @@ function mostrarPergunta(){
 
     areaPergunta.textContent = pergunta.afirmacao;
 
-    buttonTrue.disable = false;
-    buttonFalse.disable = false;
+    buttonTrue.disabled = false;
+    buttonFalse.disabled = false;
 }
 
 function checarResposta(respostaJogador) {
-    buttonTrue.disable = true;
-    buttonFalse.disable = true;
+    buttonTrue.disabled = true;
+    buttonFalse.disabled = true;
 
-    const perguntaCorreta = perguntasPartida[perguntaAtual].respota;
+    const perguntaCorreta = perguntasPartida[perguntaAtual].resposta;
 
-    if (respotaJogador === perguntaCorreta) {
-        atualizarPlacar
+    if (respostaJogador === perguntaCorreta) {
+        atualizarPlacar(50);
+    } else {
+        atualizarPlacar(-50);
     }
+
+    perguntaAtual++;
+    setTimeout(mostrarPergunta, 1500);
 }
+
+buttonTrue.addEventListener('click', () => checarResposta(true));
+buttonFalse.addEventListener('click', () => checarResposta(false));
+

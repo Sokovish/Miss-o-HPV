@@ -1,135 +1,136 @@
-
+import { iniciarLogicaVF } from './caca_mitos.js';
 
 
 const telaInicio = document.getElementById('inicio');
 const preJogo = document.getElementById('pre_jogo');
-const InvViral = document.getElementById('pre_invasao_viral');
 
 const inputNome = document.getElementById('playerName');
 const btnIniciar = document.getElementById('btn-iniciar');
 const btnComecar = document.getElementById('btn-comecar');
-const btnJogar = document.getElementById('btn-jogar');
 
 const cronometroDisplay = document.getElementById('cronometro_display');
 const placar = document.getElementById('placar');
 const nomeJogadorDisplay = document.getElementById('nomeJogadorDisplay');
 
 let nomeJogador = '';
-
 let pontuacao = 0;
-
 let cronometroInterval;
 let tempoInicio = 0;
 let tempoPausado = 0;
+let faseAtual = -1;
 
+const playlistFase = [
+    {
+        nome: 'Caça Mitos',
+        idPreTela: 'pre_caca_mitos',
+        idJogo: 'caca_mitos',
+        iniciarLogica: iniciarLogicaVF,
+    },
+    {
+        // nome: 'Quiz',
+        // idPreTela: 'pre_quiz',
+        // idJogo: 'caca_mitos',
+        // iniciarLogica: iniciarLogicaQuiz,
+    },
+];
+
+// --- FUNÇÕES DE CONTROLE ---
 function mostrarTela(telaMostrar) {
     document.querySelectorAll('.js-tela').forEach(tela => {
         tela.style.display = 'none';
     });
     telaMostrar.style.display = 'grid';
 }
+function mostrarHud() { hud.style.display = 'flex'; }
+function esconderHud() { hud.style.display = 'none'; }
 
-const SalvarAvançar = () => { 
+// --- FUNÇÕES DO CRONÔMETRO (Já estavam boas!) ---
+function iniciarCronometro() {
+    if (cronometroInterval) return;
+    tempoInicio = Date.now() - tempoPausado;
+    cronometroInterval = setInterval(atualizarDisplay, 50);
+}
+function pausarTempo() {
+    clearInterval(cronometroInterval);
+    cronometroInterval = null;
+    if (tempoInicio > 0) {
+        tempoPausado = Date.now() - tempoInicio;
+    }
+}
+function atualizarDisplay() {
+    const tempoDecorrido = Date.now() - tempoInicio;
+    cronometroDisplay.textContent = formatarTempo(tempoDecorrido);
+}
+function formatarTempo(milissegundos) {
+    const minutos = String(Math.floor(milissegundos / 60000)).padStart(2, '0');
+    const segundos = String(Math.floor((milissegundos % 60000) / 1000)).padStart(2, '0');
+    const ms = String(Math.floor((milissegundos % 1000) / 10)).padStart(2, '0');
+    return `${minutos}:${segundos}.${ms}`;
+}
+
+// --- FUNÇÕES DE FLUXO ---
+function SalvarAvançar() { 
     nomeJogador = inputNome.value;
     if (nomeJogador.trim() === '') {
         alert('Por favor, insira seu nome');
         return;
     }
-
     nomeJogadorDisplay.textContent = nomeJogador;
     mostrarTela(preJogo);
 }
 
-const playlsitFase = [
-    {
-        nome: 'Caça Mitos',
-        idPreTela: 'pre_caca_mitos',
-        idJogo: 'vf',
-        iniciarLogica: logica
-    },
-];
-let faseAtual = -1;
+function irParaJogo() {
+    faseAtual = -1; // Reseta o contador
+    avancarFase();  // Inicia o ciclo de fases
+}
 
 export function avancarFase() {
-    pausarTempo;
+    pausarTempo();
     faseAtual++;
 
-    if (faseAtual >= playlsitFase.length) {
+    if (faseAtual >= playlistFase.length) {
         finalizarJogo();
         return;
     }
 
-    const proximaFaseInfo = playlsitFase[faseAtual]
+    const proximaFaseInfo = playlistFase[faseAtual];
     const telaTransicao = document.getElementById(proximaFaseInfo.idPreTela);
     const botaoPronto = telaTransicao.querySelector('.button');
-    const tituloTransicao = telaTransicao.querySelector('.titulo h2')
+    const tituloTransicao = telaTransicao.querySelector('.titulo h2');
 
     if (tituloTransicao) {
         tituloTransicao.textContent = proximaFaseInfo.nome;
     }
-
     mostrarTela(telaTransicao);
 
     botaoPronto.addEventListener('click', () => {
         const telaDoJogo = document.getElementById(proximaFaseInfo.idJogo);
-        const tituloJogoHud = document.getElementById('titulo_jogo');
-
         tituloJogoHud.textContent = proximaFaseInfo.nome;
+        
+        mostrarHud();
         mostrarTela(telaDoJogo);
         iniciarCronometro();
-        proximaFaseInfo.iniciarLogica(avancarParaProximaFase);
+        
+        proximaFaseInfo.iniciarLogica(avancarFase);
     }, { once: true });
 }
 
-function iniciarCronometro() {
-    if (cronometroInterval) return;
-    tempoInicio = Date.now();
-
-    cronometroInterval = setInterval(atualizarDisplay, 50);
+function finalizarJogo() {
+    console.log("JOGO FINALIZADO!");
+    // Lógica da tela final
 }
 
-function pausarTempo() {
-    clearInterval(cronometroInterval);
-    cronometroInterval = null;
-    tempoPausado = Date.now() - tempoInicio;
+export function atualizarPlacar(valor) {
+    pontuacao += valor;
+    placar.textContent = `Pontuação: ${pontuacao}`;
 }
 
-function atualizarDisplay (){
-    tempoDecorrido = Date.now() - tempoInicio;
+// --- CONECTANDO OS BOTÕES INICIAIS ---
+btnComecar.addEventListener('click', avancarFase);
+btnIniciar.addEventListener('click', () => SalvarAvançar());
 
-    cronometroDisplay.textContent = formatarTempo(tempoDecorrido);
-    
-}
 
-function formatarTempo(milissegundos) {
-    const minutos = String(Math.floor(milissegundos / 60000)).padStart(2, '0');
-    const segundos = String(Math.floor(milissegundos % 60000 / 1000)).padStart(2, '0');
-    const ms = String(Math.floor(milissegundos % 1000 / 10)).padStart(2, '0');
-    
-    return `${minutos}:${segundos}:${ms}`;
-}
 
-function pararCronometro() {
-    clearInterval(cronometroInterval);
-    cronometroInterval = null;
-    cronometroDisplay.textContent = '00:00:000';
-}
-
-function somarSubtrair(valor) {
-    if (valor > 0) {
-       let resultado = pontuacao + valor;
-    }else {
-       let resultado = pontuacao - valor;
-    }
-
-    atualizarPlacar(resultado);
-}
-
-function atualizarPlacar() {
-    
-}
-
-btnComecar.addEventListener('click', ()=> mostrarTela(InvViral));
-btnIniciar.addEventListener('click', () => SalvarAvançar(InvViral));
-
+// --- INICIALIZAÇÃO DA PÁGINA ---
+esconderHud();
 mostrarTela(telaInicio);
