@@ -57,7 +57,7 @@
                 <p>
                     Olá, <span id="nomeJogadorDisplay"></span>!
                 </p>    
-                <p> Seu objetivo é passar por 5 fases e acumular o máximo de pontos que conseguir. Cada fase testará seu conhecimento e agilidade de uma forma diferente. </p>
+                <p> Seu objetivo é passar por 2 fases e acumular o máximo de pontos que conseguir. Cada fase testará seu conhecimento e agilidade de uma forma diferente. </p>
                 <p>
                 ✅ <span>Acerte as respostas</span> Acerte as respostas para somar pontos. <br>
                 ❌ <span>Erros podem custar pontos</span> Erros podem custar pontos, então jogue com atenção!
@@ -96,9 +96,8 @@
     </div>
 
     <div class="container js-tela" id="caca_mitos">
-        <div class="paragrafo" id="area_pergunta_mitos">
-            <p class="afirmacao_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div>
+        <div id="feedback-vf-container"></div>
+        <div class="paragrafo" id="area_pergunta_mitos"></div>
         <div class="botoes">
             <button id="button_true" class="button_vf cor_green"><img src="./img/simbolo-correto.png" alt="simbolo-correto"></button>
             <button id="button_false" class="button_vf cor_red"><img src="./img/cancelar.png" alt="simbolo-incorreto"></button>
@@ -122,13 +121,12 @@
 
     <div class="container js-tela" id="quiz">
         <div class="paragrafo" id="area_pergunta_quiz">
-            <p id="pergunta_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
         <div class="alternativas">
-            <button class="btnAlternativas">Alternativa 1</button>
-            <button class="btnAlternativas">Alternativa 2</button>
-            <button class="btnAlternativas">Alternativa 3</button>
-            <button class="btnAlternativas">Alternativa 4</button>
+            <button id="alt1" class="btnAlternativas">Alternativa 1</button>
+            <button id="alt2" class="btnAlternativas">Alternativa 2</button>
+            <button id="alt3" class="btnAlternativas">Alternativa 3</button>
+            <button id="alt4" class="btnAlternativas">Alternativa 4</button>
         </div>
     </div>
     </main>

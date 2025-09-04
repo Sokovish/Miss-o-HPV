@@ -1,9 +1,10 @@
 import {bancoVerdadeiroFalso} from "./dados.js"
-import { avancarFase, atualizarPlacar } from "./main.js";
+import { avancarFase, atualizarPlacar, embaralharArray} from "./main.js";
 
 const areaPergunta = document.getElementById('area_pergunta_mitos')
 const buttonTrue = document.getElementById('button_true')
 const buttonFalse = document.getElementById('button_false')
+const feedbackContainer = document.getElementById('feedback-vf-container');
 
 let perguntaAtual = 0;
 let perguntasPartida = [];
@@ -13,7 +14,7 @@ const totalPerguntas = 10;
 export function iniciarLogicaVF() {
     console.log("Iniciando fase: Verdadeiro ou Falso");
 
-    const bancoEmbaralhado = [...bancoVerdadeiroFalso].sort(() => Math.random() - 0.5);
+    const bancoEmbaralhado = embaralharArray([...bancoVerdadeiroFalso]);
     
     perguntasPartida = bancoEmbaralhado.slice(0, totalPerguntas);
     perguntaAtual = 0;
@@ -23,11 +24,12 @@ export function iniciarLogicaVF() {
 
 
 function mostrarPergunta(){
+    feedbackContainer.innerHTML = '';
+
     if (perguntaAtual >= totalPerguntas) {
         avancarFase();
         return;
     }
-
     const pergunta = perguntasPartida[perguntaAtual];
 
     areaPergunta.textContent = pergunta.afirmacao;
@@ -44,12 +46,14 @@ function checarResposta(respostaJogador) {
 
     if (respostaJogador === perguntaCorreta) {
         atualizarPlacar(50);
+        feedbackContainer.innerHTML = `<p class="feedback-vf feedback-certo">Certa Resposta! ✅</p>`;
     } else {
         atualizarPlacar(-50);
+        feedbackContainer.innerHTML = `<p class="feedback-vf feedback-errado">Resposta Errada! ❌</p>`;
     }
 
     perguntaAtual++;
-    setTimeout(mostrarPergunta, 15);
+    setTimeout(mostrarPergunta, 700);
 }
 
 buttonTrue.addEventListener('click', () => checarResposta(true));
