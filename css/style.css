@@ -624,3 +624,13 @@ img {
         color: #cccccc;
     }
 }
+
+@media screen and (max-height: 667px ) {
+    .responsividade {
+        height: 420px;
+    }
+
+    #feedback-vf-container{
+        bottom: 22.5rem;
+    }
+}
