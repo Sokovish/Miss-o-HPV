@@ -33,8 +33,6 @@ main {
     padding: 40px;
     position: relative;
 }
-
-/* Layouts de Grid específicos para cada tela */
 #inicio {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 0.1fr 1fr;
@@ -67,6 +65,7 @@ main {
     display: grid;
     grid-template-rows: 1fr 2fr;
 }
+
 
 .js-tela {
     display: none;
@@ -295,7 +294,7 @@ img {
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 40.625rem; /* Ajuste este valor para subir ou descer a placa */
+    bottom: 40.625rem;
     left: 0;
     right: 0
 }
@@ -334,3 +333,106 @@ img {
     border-color: #e72942;
   }
 }
+
+/* ==========================================================================
+  5. Estilos da Tela Final
+   ========================================================================== */
+
+/* Layout principal da tela final */
+#tela-final {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* --- Bloco de Resultados (Pontos e Tempo) --- */
+.resultados-finais {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a2e;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.resultado-item {
+    text-align: center;
+}
+
+.resultado-label {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.resultado-valor {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e72942;
+}
+
+
+/* --- Bloco do Ranking --- */
+.ranking-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ranking-container h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#lista-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Estilo para cada linha do ranking (será criada pelo JS) */
+.ranking-item {
+    display: flex;
+    align-items: baseline;
+    background-color: rgba(26, 26, 46, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+
+.ranking-item:nth-child(even) {
+    background-color: rgba(60, 60, 92, 0.5); 
+}
+
+.ranking-item .posicao {
+    font-weight: bold;
+    color: #e72942;
+    width: 50px;
+    font-size: 1.3rem;
+}
+
+.ranking-item .nome {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.ranking-item .pontos {
+    width: 150px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.ranking-item .tempo {
+    width: 150px;
+    text-align: right;
+    color: #cccccc;
+}
+

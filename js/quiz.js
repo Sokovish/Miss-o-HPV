@@ -44,7 +44,7 @@ function mostrarPergunta(){
     const todosOsBotoes = [alt1, alt2, alt3, alt4];
     todosOsBotoes.forEach(botao => {
         botao.disabled = false;
-        botao.style.backgroundColor = ''; // Reseta a cor do botão
+        botao.style.backgroundColor = '';
    });
 }
 
