@@ -77,19 +77,18 @@ main {
    ========================================================================== */
 
 /* --- Componentes de Texto e Tipografia --- */
-#title {
+.title {
     color: #e72942;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.titulo {
+.titulos {
     font-size: 2.5rem;
-    font-weight: bold;
     color: #e72942;
+    font-weight: bold
 }
-
 
 h2 {
     text-align: center;
@@ -343,10 +342,8 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
     gap: 20px;
 }
-
 
 /* --- Bloco de Resultados (Pontos e Tempo) --- */
 .resultados-finais {
@@ -436,3 +433,194 @@ img {
     color: #cccccc;
 }
 
+/* ==========================================================================
+  5. Responsividade
+   ========================================================================== */
+
+@media screen and (max-width: 1600px) {
+    .container {
+        height: 525px;
+        max-width: 960px;
+        min-width: 960px;
+        padding: 32px;
+    }
+    .container_responsivo {
+        height: 600px;
+        max-width: 960px;
+        min-width: 960px;
+        padding: 32px;
+    }
+    #inicio{
+        gap: 12px;
+    }
+    .title {
+        font-size: 1.2rem;
+    }
+    #titulo_final{
+        margin-bottom: 0;
+    }
+    .paragrafo {
+        font-size: 1.2rem;
+    }
+    p {
+        margin-top: 1.2rem;
+    }
+    #playerName {
+        width: 360px;
+        height: 72px;
+        font-size: 1.2rem;
+    }
+    #serie-select {
+        height: 1.6rem;
+        width: 9.6rem;
+        border: solid 1.6px #e72942;
+    }
+    .button {
+        font-size: 1.2rem; 
+        padding: 16px 80px;
+    }
+
+    #lembrete {
+        font-size: 0.96rem;
+    }
+    #pre_jogo {
+        gap: 16px;
+    }
+    #pre_caca_mitos {
+        gap: 16px;
+    }
+
+    .button_vf {
+        font-size: 1.2rem;
+        padding: 24px 120px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 6.4px 19.2px;
+    }
+    img {
+    height: 40px;
+    width: 40px;
+    }
+    .btnAlternativas{
+        height: 4rem;
+        width: 40rem;
+        font-size: 1.2rem;
+    }
+    #feedback-vf-container {
+        min-height: 40px;
+        bottom: 28rem;
+    }
+    .resultado-label {
+        font-size: 1.2rem;
+    }
+    .resultado-valor {
+        font-size: 2rem;
+    }
+    .ranking-container h3 {
+        font-size: 1.44rem;
+    }
+    .ranking-item{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container{
+        height: 500px;
+        max-width: 768px;
+        min-width: 768px;
+        padding: 25.6px;
+    }
+    .container_responsivo {
+        height: 600px;
+        max-width: 768px;
+        min-width: 768px;
+        padding: 25.6px;
+    }
+    #inicio{
+        gap: 9.6px;
+    }
+    .title {
+        font-size: 0.96rem;
+    }
+    .titulos {
+        font-size: 1.9rem;
+    }
+    .paragrafo {
+        font-size: 1.2rem;
+    }
+    p {
+        margin-top: 0.96rem;
+    }
+    h2{
+        margin-bottom: 0;
+    }
+    #playerName {
+        width: 288px;
+        height: 57.6px;
+        font-size: 0.96rem;
+    }
+    #serie-select {
+        height: 1.6rem;
+        width: 9.6rem;
+        border: solid 1.6px #e72942;
+    }
+    .button {
+        font-size: 1.2rem; 
+        padding: 16px 80px;
+    }
+    #lembrete {
+        font-size: 0.768rem;
+    }
+    #pre_jogo {
+        gap: 12.8px;
+    }
+    #pre_caca_mitos {
+        gap: 12.8px;
+    }
+    .button_vf {
+        font-size: 0.96rem;
+        padding: 19.2px 96px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 5.12px 15.36px;
+    }
+    img {
+        height: 32px;
+        width: 32px;
+    }
+    .btnAlternativas{
+        height: 3.2rem;
+        width: 32rem;
+    }
+    #feedback-vf-container {
+        min-height: 32px;
+        bottom: 27rem;
+    }
+    .resultado-label {
+        font-size: 1rem;
+    }
+    .resultado-valor {
+        font-size: 2rem;
+    }
+    .ranking-container h3 {
+        font-size: 1.3rem;
+    }
+
+    .ranking-item {
+        font-size: 1rem;
+    }
+    .ranking-item .posicao {
+        font-weight: bold;
+        color: #e72942;
+        width: 50px;
+        font-size: 1.2rem;
+    }
+    .ranking-item .pontos {
+        width: 150px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .ranking-item .tempo {
+        width: 150px;
+        text-align: right;
+        color: #cccccc;
+    }
+}

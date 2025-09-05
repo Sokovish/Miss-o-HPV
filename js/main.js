@@ -158,7 +158,7 @@ function finalizarJogo() {
         return runA.tempoMs - runB.tempoMs;
     });
 
-    const rankingFinal = ranking.slice(0, 10);
+    const rankingFinal = ranking.slice(0, 3);
     salvarRanking(rankingFinal);
     mostrarTelaFinal(runAtual, rankingFinal);
 }
